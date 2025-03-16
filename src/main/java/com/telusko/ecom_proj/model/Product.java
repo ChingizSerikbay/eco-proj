@@ -13,26 +13,35 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
-    private String desk;
+    private String description;
     private String brand;
     private int price;
     private String category;
-    private Date realeseDate;
-    private boolean available;
-    private int quantity;
+    private Date releaseDate;
+    private boolean productAvailable;
+    private int stockQuantity;
+
+    private String imageName;
+    private String imageType;
+    @Lob
+    private byte[] imageDate;
 
     public Product() {
     }
 
-    public Product(String name, String desk, String brand, int price, String category, Date realeseDate, boolean available, int quantity) {
+    public Product(String name, String description, String brand, int price, String category, Date releaseDate, boolean productAvailable,
+                   int stockQuantity, String imageName, String imageType, byte[] imageDate) {
         this.name = name;
-        this.desk = desk;
+        this.description = description;
         this.brand = brand;
         this.price = price;
         this.category = category;
-        this.realeseDate = realeseDate;
-        this.available = available;
-        this.quantity = quantity;
+        this.releaseDate = releaseDate;
+        this.productAvailable = productAvailable;
+        this.stockQuantity = stockQuantity;
+        this.imageName = imageName;
+        this.imageType = imageType;
+        this.imageDate = imageDate;
     }
 
     public int getId() {
@@ -51,12 +60,12 @@ public class Product {
         this.name = name;
     }
 
-    public String getDesk() {
-        return desk;
+    public String getDescription() {
+        return description;
     }
 
-    public void setDesk(String desk) {
-        this.desk = desk;
+    public void setDescription(String desk) {
+        this.description = desk;
     }
 
     public String getBrand() {
@@ -83,28 +92,52 @@ public class Product {
         this.category = category;
     }
 
-    public Date getRealeseDate() {
-        return realeseDate;
+    public Date getReleaseDate() {
+        return releaseDate;
     }
 
-    public void setRealeseDate(Date realeseDate) {
-        this.realeseDate = realeseDate;
+    public void setReleaseDate(Date realeseDate) {
+        this.releaseDate = realeseDate;
     }
 
-    public boolean isAvailable() {
-        return available;
+    public boolean isProductAvailable() {
+        return productAvailable;
     }
 
-    public void setAvailable(boolean available) {
-        this.available = available;
+    public void setProductAvailable(boolean available) {
+        this.productAvailable = available;
     }
 
-    public int getQuantity() {
-        return quantity;
+    public int getStockQuantity() {
+        return stockQuantity;
     }
 
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
+    public void setStockQuantity(int quantity) {
+        this.stockQuantity = quantity;
+    }
+
+    public String getImageName() {
+        return imageName;
+    }
+
+    public void setImageName(String imageName) {
+        this.imageName = imageName;
+    }
+
+    public String getImageType() {
+        return imageType;
+    }
+
+    public void setImageType(String imageType) {
+        this.imageType = imageType;
+    }
+
+    public byte[] getImageDate() {
+        return imageDate;
+    }
+
+    public void setImageDate(byte[] imageDate) {
+        this.imageDate = imageDate;
     }
 
     @Override
@@ -112,13 +145,13 @@ public class Product {
         return "Product{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", desk='" + desk + '\'' +
+                ", desk='" + description + '\'' +
                 ", brand='" + brand + '\'' +
                 ", price=" + price +
                 ", category='" + category + '\'' +
-                ", realeseDate=" + realeseDate +
-                ", available=" + available +
-                ", quantity=" + quantity +
+                ", realeseDate=" + releaseDate +
+                ", available=" + productAvailable +
+                ", quantity=" + stockQuantity +
                 '}';
     }
 }
